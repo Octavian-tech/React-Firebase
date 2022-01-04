@@ -1,0 +1,10 @@
+.profilePage{
+    display: flex;
+    flex-direction: row;
+
+}
+
+.profile_page_position{
+    position: center;
+
+}
