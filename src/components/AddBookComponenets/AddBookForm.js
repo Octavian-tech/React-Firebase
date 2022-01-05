@@ -17,6 +17,8 @@ const AddBookForm = () => {
     const history=useHistory();
     const match=useRouteMatch();
 
+    const localId=localStorage.getItem('localId');
+
 
     useEffect(()=>{
         if(status==='completed'){
@@ -44,7 +46,8 @@ const AddBookForm = () => {
         event.preventDefault();
 
         let ObjectData = {
-            id: Date.now(),
+            // id: Date.now(),
+            idAuth:localId,
             author: authorInputRef.current.value,
             title: titleInputRef.current.value,
             price: priceInputRef.current.value

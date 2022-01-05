@@ -2,7 +2,7 @@
 const FIREBASE_DOMAIN = 'https://react-http-57538-default-rtdb.firebaseio.com';
 
 
-export async function getAllData(){
+export async function getAllData(idAuth){
     const response=await fetch(`${FIREBASE_DOMAIN}/books.json`);
     const data= await  response.json();
 
@@ -18,13 +18,19 @@ export async function getAllData(){
     for (const key in data) {
         const bookObj = {
             key: key,
+            idAuth:data[key].localId,
             ...data[key],
         };
 
 
-        console.log("key"+key);
+        console.log("key"+bookObj.idAuth);
 
-        transformDataBooks.push(bookObj);
+         if(bookObj.idAuth===idAuth){
+             transformDataBooks.push(bookObj);
+
+         }
+
+
     }
 
     console.log(transformDataBooks);

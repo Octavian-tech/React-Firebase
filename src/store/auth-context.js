@@ -63,11 +63,12 @@ export const AuthContextProvider=(props)=>{
 
     const userIsLoggedIn=!!token;
 
-    const loginHandler=(token,expirationTime)=>{
+    const loginHandler=(token,expirationTime,localId)=>{
 
         setToken(token);
         localStorage.setItem('token',token);
         localStorage.setItem('expirationTime',expirationTime);
+        localStorage.setItem('localId',localId);
         const remainingTime=calculateRemainingTime(expirationTime);
 
         logoutTimer=setTimeout(logoutHandler,remainingTime);

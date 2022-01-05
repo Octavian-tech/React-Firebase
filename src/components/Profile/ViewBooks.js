@@ -3,7 +3,7 @@ import {useCallback, useEffect, useState} from "react";
 import {getAllData} from "../../api/api";
 import useHttp from "../../hooks/use-hook";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import NoQuotesFound from "../UI/NoQuotesFound";
+import NoBooksFound from "../UI/NoBooksFound";
 
 const Dummy_data = [{id: 'q1', author: 'Max', title: 'Five hundred meters', price: 20}, {
     id: 'q2',
@@ -21,12 +21,14 @@ const Dummy_data = [{id: 'q1', author: 'Max', title: 'Five hundred meters', pric
 
 const ViewBooks = () => {
 
+    const idAuth=localStorage.getItem('localId');
+
 
 
     const {sendRequest,status,data:loadedBooks,error}=useHttp(getAllData,true);
 
     useEffect(()=>{
-        sendRequest();
+        sendRequest(idAuth);
     },[sendRequest]);
 
     if(status==='pending'){
@@ -38,7 +40,7 @@ const ViewBooks = () => {
     }
 
     if (status === 'completed' && (!loadedBooks || loadedBooks.length === 0)) {
-        return <NoQuotesFound/>;
+        return <NoBooksFound/>;
     }
 
 
