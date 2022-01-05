@@ -5,9 +5,9 @@ import {Link, NavLink, useRouteMatch} from "react-router-dom";
 const BookItem = (props) => {
 
     const match = useRouteMatch();
-    console.log(match.path);
+    // console.log(match.path);
 
-    console.log(props.id);
+    console.log("bookItemId"+props.idAuth);
 
 
     return (

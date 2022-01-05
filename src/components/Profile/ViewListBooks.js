@@ -17,7 +17,7 @@ const ViewListBooks = (props) => {
         <Route path={match.path}>
             <ul className={classes.list}>
                 {props.books.map((book) => (
-                <BookItem key={book.key} id={book.key} title={book.title} author={book.author}/>
+                <BookItem key={book.key} id={book.key} idAuth={book.idAuth} title={book.title} author={book.author} />
             ))}</ul>
 
         </Route>

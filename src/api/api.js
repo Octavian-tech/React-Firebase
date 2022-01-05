@@ -53,6 +53,8 @@ export async  function getSingleBook(bookId){
         ...data,
     };
 
+    console.log(loadedBooks);
+
     return loadedBooks;
 }
 
@@ -72,6 +74,7 @@ export async function addNewBook(bookData){
 
 export async function  updateBook(bookData,bookId){
 
+    // debugger;
     const response = await fetch(`${FIREBASE_DOMAIN}/books/${bookId}.json`,{
         method:'PUT',
         body:JSON.stringify(bookData),

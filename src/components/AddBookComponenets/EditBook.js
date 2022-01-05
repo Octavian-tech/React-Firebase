@@ -42,7 +42,9 @@ const EditBook = (props) => {
     const init = () => {
 
 
-        return {author: props.bookObj.author, title: props.bookObj.title, price: props.bookObj.price};
+
+
+        return { idAuth:localStorage.getItem('localId'), author: props.bookObj.author, title: props.bookObj.title, price: props.bookObj.price};
 
     }
 
